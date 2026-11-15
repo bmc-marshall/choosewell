@@ -1,0 +1,23 @@
+flowchart LR
+  D1["Pilot first?<br/>(decision)"]
+  D1 -- "Roll out now" --> C0(("Roll-out<br/>EV 120"))
+  C0 -- "Succeeds 0.4" --> E1["+900"]
+  C0 -- "Fails 0.6" --> E2["−400"]
+  D1 -- "Don't roll out" --> E3["0"]
+  D1 -- "Pilot (−40)<br/>EV 176 ✔" --> C1(("Pilot result"))
+  C1 -- "Goes well 0.5" --> D2["Roll out?"]
+  C1 -- "Goes poorly 0.5" --> D3["Roll out?"]
+  D2 -- "Roll out ✔" --> C2(("EV 432"))
+  C2 -- "Succeeds 0.64" --> E4["+900"]
+  C2 -- "Fails 0.36" --> E5["−400"]
+  D2 -- "Stop" --> E6["0"]
+  D3 -- "Roll out" --> C3(("EV −192"))
+  C3 -- "Succeeds 0.16" --> E7["+900"]
+  C3 -- "Fails 0.84" --> E8["−400"]
+  D3 -- "Stop ✔" --> E9["0"]
+  classDef dec fill:#DCE6F2,stroke:#1F3864,color:#000
+  classDef ch fill:#FFF2CC,stroke:#7F6000,color:#000
+  classDef end1 fill:#FFFFFF,stroke:#999999,color:#000
+  class D1,D2,D3 dec
+  class C0,C1,C2,C3 ch
+  class E1,E2,E3,E4,E5,E6,E7,E8,E9 end1

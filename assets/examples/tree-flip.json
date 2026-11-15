@@ -1,0 +1,24 @@
+{
+ "_about": "Tree flip for a fallible screening question; two signals combined.",
+ "prior": {
+  "interested": 0.1,
+  "aware": 0.3,
+  "unaware": 0.6
+ },
+ "tests": {
+  "opened the briefing": {
+   "opened": {
+    "interested": 0.3,
+    "aware": 0.05,
+    "unaware": 0.01
+   }
+  },
+  "attended the webinar": {
+   "attended": {
+    "interested": 0.2,
+    "aware": 0.1,
+    "unaware": 0.01
+   }
+  }
+ }
+}

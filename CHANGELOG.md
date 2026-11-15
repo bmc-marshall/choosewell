@@ -2,6 +2,13 @@
 
 Dates are when a version was released. Guidance summaries (Green Book, US federal) are checked at each release; the "as of" date is in each rulebook file.
 
+## 1.0.1 (2026-11-15)
+
+- **The full skill is on GitHub.** The first upload carried only the top-level files; the reference files, scripts, examples, guide assets, tests and workflow are now included, so the repository installs and runs as described.
+- README: a picture of three Choosewell slides at the top, the methods list, and a link to Slidewell for building the deck. The slides and their build script are in `docs/showcase/`; the images are in `docs/images/`.
+- Releases build themselves: `tools/package.py` makes `choosewell.skill` (one `choosewell/` folder, no repository-only files, and never a zip inside it, which claude.ai rejects), and the workflow attaches it and the Word guide to each published release.
+- Tests now run on Python 3.10 and 3.12, plus a test of the release file.
+
 ## 1.0.0 (2026-11-10)
 
 First public release.

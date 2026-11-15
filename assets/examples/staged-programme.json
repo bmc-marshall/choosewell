@@ -1,0 +1,135 @@
+{
+ "units": "\u00a3m",
+ "params": {
+  "p2": {
+   "value": 0.4,
+   "low": 0.3,
+   "high": 0.5,
+   "source": "Track record of similar first phases"
+  },
+  "c2": 5,
+  "p3": 0.75,
+  "c3": {
+   "value": 80,
+   "low": 60,
+   "high": 100,
+   "source": "Cost estimate for phase 2"
+  },
+  "p_sup": {
+   "value": 0.6,
+   "low": 0.4,
+   "high": 0.8,
+   "source": "Team judgement from comparable programmes; range from the three people asked"
+  },
+  "agg_sup": 700,
+  "agg_eq": -300,
+  "cau_sup": 400,
+  "cau_eq": -50
+ },
+ "tree": {
+  "type": "decision",
+  "name": "Start phase 1?",
+  "options": [
+   {
+    "label": "Start",
+    "cost": "c2",
+    "node": {
+     "type": "chance",
+     "name": "Phase 1",
+     "branches": [
+      {
+       "label": "Phase 1 succeeds",
+       "p": "p2",
+       "node": {
+        "type": "chance",
+        "name": "Phase 1I",
+        "branches": [
+         {
+          "label": "Phase 2 succeeds",
+          "p": "p3",
+          "cost": "c3",
+          "node": {
+           "type": "decision",
+           "name": "Launch",
+           "options": [
+            {
+             "label": "Full-scale launch",
+             "node": {
+              "type": "chance",
+              "name": "How good it proves",
+              "branches": [
+               {
+                "label": "Clearly better",
+                "p": "p_sup",
+                "node": {
+                 "value": "agg_sup"
+                }
+               },
+               {
+                "label": "Only as good",
+                "node": {
+                 "value": "agg_eq"
+                }
+               }
+              ]
+             }
+            },
+            {
+             "label": "Limited launch",
+             "node": {
+              "type": "chance",
+              "name": "How good it proves",
+              "branches": [
+               {
+                "label": "Clearly better",
+                "p": "p_sup",
+                "node": {
+                 "value": "cau_sup"
+                }
+               },
+               {
+                "label": "Only as good",
+                "node": {
+                 "value": "cau_eq"
+                }
+               }
+              ]
+             }
+            },
+            {
+             "label": "No launch"
+            }
+           ]
+          }
+         },
+         {
+          "label": "Phase 2 fails",
+          "cost": "c3"
+         }
+        ]
+       }
+      },
+      {
+       "label": "Phase 1 fails"
+      }
+     ]
+    }
+   },
+   {
+    "label": "Stop"
+   }
+  ]
+ },
+ "notes": {
+  "p2": "Chance phase 1 succeeds",
+  "c2": "Cost of phase 1",
+  "p3": "Chance phase 2 succeeds, given phase 1 did",
+  "c3": "Cost of phase 2",
+  "p_sup": "Chance the result proves clearly better than alternatives",
+  "agg_sup": "Value of a full-scale launch if clearly better",
+  "agg_eq": "\u2026if only as good",
+  "cau_sup": "Value of a limited launch if clearly better",
+  "cau_eq": "\u2026if only as good"
+ },
+ "_about": "Phased programme with stage gates and a later launch decision. Try: --at Launch --sweep p_sup=0:1:20"
+}

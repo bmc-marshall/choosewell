@@ -1,0 +1,35 @@
+{
+ "units": "\u00a3m",
+ "tree": {
+  "type": "decision",
+  "name": "Take it?",
+  "options": [
+   {
+    "label": "Gamble",
+    "node": {
+     "type": "chance",
+     "name": "x",
+     "branches": [
+      {
+       "label": "win",
+       "p": 0.5,
+       "node": {
+        "value": 3
+       }
+      },
+      {
+       "label": "lose",
+       "node": {
+        "value": -1
+       }
+      }
+     ]
+    }
+   },
+   {
+    "label": "Decline"
+   }
+  ]
+ },
+ "_about": "Risk attitude: try --risk-tolerance 2"
+}

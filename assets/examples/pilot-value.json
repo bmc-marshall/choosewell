@@ -1,0 +1,34 @@
+{
+ "units": "\u00a3k",
+ "states": {
+  "would succeed": 0.4,
+  "would fail": 0.6
+ },
+ "actions": {
+  "Roll out nationally": {
+   "would succeed": 900,
+   "would fail": -400
+  },
+  "Don't roll out": {
+   "would succeed": 0,
+   "would fail": 0
+  }
+ },
+ "tests": [
+  {
+   "name": "Regional pilot",
+   "cost": 40,
+   "signals": {
+    "Pilot goes well": {
+     "would succeed": 0.8,
+     "would fail": 0.3
+    },
+    "Pilot goes poorly": {
+     "would succeed": 0.2,
+     "would fail": 0.7
+    }
+   }
+  }
+ ],
+ "_about": "Is a pilot worth its cost? Run: uncertainty.py voi pilot-value.json"
+}
