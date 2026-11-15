@@ -1,0 +1,20 @@
+flowchart TD
+  S([What kind of answer do you need?]) --> M[MATCH<br/>which option fits<br/>each situation?]
+  S --> Q[SEQUENCE<br/>which of many activities<br/>first?]
+  S --> P[SELECT<br/>pick or shortlist<br/>from a set]
+  M --> MT[Decision tree<br/>red lines, then push/pull factors]
+  Q --> Q1{Is it clear who does<br/>what today?}
+  Q1 -- no --> RM[Responsibility mapping first]
+  Q1 -- yes --> Q2
+  RM --> Q2{Can do, or must do?}
+  Q2 -- what we can do --> IA[Impact x availability matrix]
+  Q2 -- what we must do --> EI[Eisenhower matrix]
+  P --> N{How many options?}
+  N -- many, about 20+ --> D{Hard data for<br/>the key tests?}
+  D -- yes --> TF[Threshold filter,<br/>then assess the survivors]
+  D -- no --> KO[Knock-outs, then a<br/>light scored screen]
+  N -- few --> F{Must it be defensible?<br/>from tree 2}
+  F -- yes --> RAG[Red/amber/green against<br/>critical success factors]
+  F -- no --> Z{One design choice<br/>with 2-4 options?}
+  Z -- yes --> PC[Pros and cons]
+  Z -- no --> SC[Scored criteria<br/>with swing weights]

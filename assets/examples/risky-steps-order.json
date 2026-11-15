@@ -1,0 +1,107 @@
+{
+ "units": "\u00a3k",
+ "objective": "min",
+ "params": {
+  "a": 100,
+  "pa": 0.8,
+  "b": 300,
+  "pb": 0.6,
+  "early": 1000,
+  "late": 1500
+ },
+ "tree": {
+  "type": "decision",
+  "name": "Order",
+  "options": [
+   {
+    "label": "Fallback now",
+    "node": {
+     "value": "early"
+    }
+   },
+   {
+    "label": "A first",
+    "cost": "a",
+    "node": {
+     "type": "chance",
+     "name": "A",
+     "branches": [
+      {
+       "label": "A passes",
+       "p": "pa",
+       "cost": "b",
+       "node": {
+        "type": "chance",
+        "name": "B",
+        "branches": [
+         {
+          "label": "B passes",
+          "p": "pb"
+         },
+         {
+          "label": "B fails",
+          "node": {
+           "value": "late"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "label": "A fails",
+       "node": {
+        "value": "early"
+       }
+      }
+     ]
+    }
+   },
+   {
+    "label": "B first",
+    "cost": "b",
+    "node": {
+     "type": "chance",
+     "name": "B",
+     "branches": [
+      {
+       "label": "B passes",
+       "p": "pb",
+       "cost": "a",
+       "node": {
+        "type": "chance",
+        "name": "A",
+        "branches": [
+         {
+          "label": "A passes",
+          "p": "pa"
+         },
+         {
+          "label": "A fails",
+          "node": {
+           "value": "late"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "label": "B fails",
+       "node": {
+        "value": "early"
+       }
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "_about": "Which risky step first? Costs are minimised. Try --set late=1000 to see the order flip.",
+ "notes": {
+  "a": "Cost of hurdle A",
+  "pa": "Chance A passes",
+  "b": "Cost of hurdle B",
+  "pb": "Chance B passes",
+  "early": "Cost of the fallback if failure is found early",
+  "late": "Cost of the fallback if failure is found late (rushed)"
+ }
+}

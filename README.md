@@ -1,6 +1,12 @@
 # Choosewell
 
-**Options appraisal with Claude: shortlist, score and test options for organisational decisions, and produce recommendations that stand up to scrutiny.**
+**Options appraisal, done properly, with Claude.** Proven methods, flexibly applied. Guided by your input. Fully auditable.
+
+Shortlist, score and test options for organisational decisions, and produce recommendations that stand up to scrutiny.
+
+![Three Choosewell slides: an options framework that narrows 20 choices to a short list, a sensitivity tornado with a switching value, and a decision tree with the value of information](docs/images/hero.png)
+
+<sub>Slides from [`docs/showcase/`](docs/showcase), built with [Slidewell](https://github.com/bmc-marshall/slidewell). Every organisation and figure is fictional.</sub>
 
 Choosewell guides a person or a working group through a structured choice. It covers what's in scope, where to work, how to organise (overall or case by case), who to work with, and smaller design choices such as team set-up, funding or hosting. It recommends a method for the situation, explains each methodological choice in plain language, keeps the group's judgement in charge, checks its own work, and produces the analysis and storyline behind a recommendation.
 
@@ -102,6 +108,10 @@ The UK and US rulebooks summarise official guidance as of November 2026. Each fi
 ## Contributing
 
 Corrections, new worked examples and translations of the guide are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md): in particular, no client or confidential material.
+
+## Part of a family
+
+Choosewell works alongside [Slidewell](https://github.com/bmc-marshall/slidewell), which turns its storyline into a consulting-grade PowerPoint deck.
 
 ## Licence and credits
 

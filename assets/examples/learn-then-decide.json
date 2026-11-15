@@ -1,0 +1,81 @@
+{
+ "units": "$m",
+ "params": {
+  "pw": 0.2,
+  "entry": 80,
+  "val": 320,
+  "p_c_if_b_works": 0.65,
+  "p_c_if_b_fails": 0.1
+ },
+ "subtrees": {
+  "second": {
+   "type": "decision",
+   "name": "Enter the second market?",
+   "options": [
+    {
+     "label": "Enter C",
+     "cost": "entry",
+     "node": {
+      "type": "chance",
+      "name": "C",
+      "branches": [
+       {
+        "label": "C works",
+        "p": "q",
+        "node": {
+         "value": "val"
+        }
+       },
+       {
+        "label": "C doesn't"
+       }
+      ]
+     }
+    },
+    {
+     "label": "Stop"
+    }
+   ]
+  }
+ },
+ "tree": {
+  "type": "decision",
+  "name": "First move",
+  "options": [
+   {
+    "label": "Enter market B first",
+    "cost": "entry",
+    "node": {
+     "type": "chance",
+     "name": "B",
+     "branches": [
+      {
+       "label": "B works",
+       "p": "pw",
+       "cash": "val",
+       "node": {
+        "use": "second",
+        "with": {
+         "q": "p_c_if_b_works"
+        }
+       }
+      },
+      {
+       "label": "B doesn't",
+       "node": {
+        "use": "second",
+        "with": {
+         "q": "p_c_if_b_fails"
+        }
+       }
+      }
+     ]
+    }
+   },
+   {
+    "label": "Enter neither"
+   }
+  ]
+ },
+ "_about": "Learn from one market before entering a related one. Compare with entering both at once to see the value of sequencing."
+}

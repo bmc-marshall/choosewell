@@ -34,4 +34,4 @@ The UK and US rulebooks summarise official guidance that changes. When you updat
 
 Versions follow [semantic versioning](https://semver.org): a **patch** (1.0.0 → 1.0.1) for fixes that add nothing new, a **minor** version (1.0.0 → 1.1.0) for new methods, steps, checks or script features that don't break existing use, and a **major** version (1.x → 2.0.0) for changes that do, such as renamed files or script commands that people's workbooks depend on.
 
-Bump the version in `CHANGELOG.md`, then zip the skill folder without repository-only files (`tests/`, `.github/`, `docs/`) as `choosewell.skill`, and attach it and the guide to the GitHub release.
+Add an entry to `CHANGELOG.md`, then publish a release on GitHub with a new tag like `v1.1.0`. The workflow builds `choosewell.skill` with `tools/package.py` and attaches it and the Word guide to the release. To build it yourself, run `python3 tools/package.py` (it writes `dist/choosewell.skill`).

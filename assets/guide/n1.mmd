@@ -1,0 +1,14 @@
+flowchart TD
+  S([Start at the top. Stop at the first<br/>question you can't yet answer.]) --> Q1{1. Have you agreed what's<br/>in and out of scope?}
+  Q1 -- no --> A1[SCOPE<br/>what's in, out, later]
+  Q1 -- yes --> Q2{2. Do you know which activities<br/>you'll do, and in what order?}
+  Q2 -- no --> A2[WHAT<br/>activities and priorities]
+  Q2 -- yes --> Q3{3. Do you know where<br/>you'll operate?}
+  Q3 -- no --> A3[WHERE<br/>countries, regions, cities, sites]
+  Q3 -- yes --> Q4{4. Do you know how you'll<br/>be organised?}
+  Q4 -- no --> Q4b{Is one structure best overall,<br/>or does it depend on each case?}
+  Q4b -- overall --> A4[STRUCTURE<br/>organisational form or vehicle]
+  Q4b -- each case --> A5[STRUCTURE BY SITUATION<br/>contracting or delivery model]
+  Q4 -- yes --> Q5{5. Do you know who<br/>you'll work with?}
+  Q5 -- no --> A6[WHO<br/>partners, suppliers, grantees]
+  Q5 -- yes --> A7[DESIGN CHOICES<br/>team, funding, name, host]
