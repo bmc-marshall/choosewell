@@ -48,7 +48,7 @@ It works through **three questions** and **ten steps**:
 
 ## Install
 
-**Claude apps (claude.ai, desktop):** download `choosewell.skill` from the latest release and upload it in your skills settings. Start a new conversation afterwards.
+**Claude apps (claude.ai, desktop):** download `choosewell.zip` from the latest release and upload it in your skills settings. Start a new conversation afterwards.
 
 **Claude Code:** copy this folder to `~/.claude/skills/choosewell` (or your project's `.claude/skills/`).
 

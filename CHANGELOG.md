@@ -2,6 +2,10 @@
 
 Dates are when a version was released. Guidance summaries (Green Book, US federal) are checked at each release; the "as of" date is in each rulebook file.
 
+## 1.0.2 (2026-11-16)
+
+- The release file is now `choosewell.zip` instead of `choosewell.skill`, so it opens on any computer and matches Slidewell. The contents are unchanged, and Claude accepts it the same way. Direct link to the newest version: `https://github.com/bmc-marshall/choosewell/releases/latest/download/choosewell.zip`.
+
 ## 1.0.1 (2026-11-15)
 
 - **The full skill is on GitHub.** The first upload carried only the top-level files; the reference files, scripts, examples, guide assets, tests and workflow are now included, so the repository installs and runs as described.
