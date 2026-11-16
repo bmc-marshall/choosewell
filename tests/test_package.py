@@ -10,7 +10,7 @@ class TestPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "package.py"), d], capture_output=True, text=True)
             self.assertEqual(r.returncode, 0, r.stderr)
-            names = zipfile.ZipFile(os.path.join(d, "choosewell.skill")).namelist()
+            names = zipfile.ZipFile(os.path.join(d, "choosewell.zip")).namelist()
         self.assertIn("choosewell/SKILL.md", names)
         self.assertTrue(all(n.startswith("choosewell/") for n in names))
         for left_out in ("choosewell/tests/", "choosewell/docs/", "choosewell/.github/", "choosewell/tools/"):

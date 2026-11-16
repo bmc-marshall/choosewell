@@ -32,9 +32,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Build choosewell.skill and attach it and the guide to the release
+      - name: Build choosewell.zip and attach it and the guide to the release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python tools/package.py dist
-          gh release upload "${{ github.event.release.tag_name }}" dist/choosewell.skill assets/choosewell-guide.docx --clobber
+          gh release upload "${{ github.event.release.tag_name }}" dist/choosewell.zip assets/choosewell-guide.docx --clobber

@@ -1,8 +1,8 @@
-"""Build choosewell.skill: the installable skill, for claude.ai uploads and GitHub releases.
+"""Build choosewell.zip: the installable skill, for claude.ai uploads and GitHub releases.
 
 Run from the repository root:
-    python3 tools/package.py            # writes dist/choosewell.skill
-    python3 tools/package.py OUT_DIR    # writes OUT_DIR/choosewell.skill
+    python3 tools/package.py            # writes dist/choosewell.zip
+    python3 tools/package.py OUT_DIR    # writes OUT_DIR/choosewell.zip
 
 The file is a zip holding one folder, choosewell/, with SKILL.md at its top. Repository-only files (tests, the
 GitHub workflow, docs, tools) are left out. claude.ai rejects a skill that contains another zip, so the build
@@ -35,7 +35,7 @@ def build(out_dir):
     if not os.path.exists(os.path.join(ROOT, "SKILL.md")):
         sys.exit("Stopped: no SKILL.md at the repository root")
     os.makedirs(out_dir, exist_ok=True)
-    out = os.path.join(out_dir, "choosewell.skill")
+    out = os.path.join(out_dir, "choosewell.zip")
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
         for p in files:
             z.write(p, os.path.join("choosewell", os.path.relpath(p, ROOT)))
